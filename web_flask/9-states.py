@@ -1,41 +1,72 @@
 #!/usr/bin/python3
-"""simple flask app
+<<<<<<< HEAD
+"""Starts a Flask web application.
+
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    /states: HTML page with a list of all State objects.
+    /states/<id>: HTML page displaying the given state with <id>.
 """
-from flask import Flask, render_template
 from models import storage
-from os import environ as env
+from flask import Flask
+from flask import render_template
+
 app = Flask(__name__)
 
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    """reload storage after each request
+@app.route("/states", strict_slashes=False)
+def states():
+    """Displays an HTML page with a list of all States.
+
+    States are sorted by name.
     """
-    storage.close()
+    states = storage.all("State")
+    return render_template("9-states.html", state=states)
 
 
 @app.route("/states/<id>", strict_slashes=False)
-@app.route("/states", strict_slashes=False)
-def states_cities_list(id=None):
-    """show state and cities if id is given
-    otherwise list all states
-    """
-    states = storage.all("State")
-    if id:
-        state = states.get('State.{}'.format(id))
-        states = [state] if state else []
-    else:
-        states = list(states.values())
-    states.sort(key=lambda x: x.name)
-    for state in states:
-        state.cities.sort(key=lambda x: x.name)
-    return render_template(
-        '9-states.html',
-        states=states,
-        len=len(states),
-        id=id
-    )
+def states_id(id):
+    """Displays an HTML page with info about <id>, if it exists."""
+    for state in storage.all("State").values():
+        if state.id == id:
+            return render_template("9-states.html", state=state)
+    return render_template("9-states.html")
+
+
+@app.teardown_appcontext
+def teardown(exc):
+    """Remove the current SQLAlchemy session."""
+    storage.close()
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0")
+=======
+"""
+starts a Flask web application
+"""
+
+from flask import Flask, render_template
+from models import *
+from models import storage
+app = Flask(__name__)
+
+
+@app.route('/states', strict_slashes=False)
+@app.route('/states/<state_id>', strict_slashes=False)
+def states(state_id=None):
+    """display the states and cities listed in alphabetical order"""
+    states = storage.all("State")
+    if state_id is not None:
+        state_id = 'State.' + state_id
+    return render_template('9-states.html', states=states, state_id=state_id)
+
+
+@app.teardown_appcontext
+def teardown_db(exception):
+    """closes the storage on teardown"""
+    storage.close()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port='5000')
+>>>>>>> 212529db4b955a72d996660137790c2497399ff5
