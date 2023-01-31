@@ -1,32 +1,30 @@
 .places {
-	display: block;
-	margin: 45px auto;
-	text-align: center;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.places h1 {
+  font-size: 30px;
+  margin-left: 25px;
 }
 
-article {
-	display: inline-block;
-	width: 390px;
-	padding: 20px;
-	margin: 20px;
-	border: 1px solid #FF5A5F;
-	border-radius: 4px;
-	text-align: center;
+.place_items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-h1 {
-	float: left;
-	text-align: left;
-	width: 95%;
-	display: block;
-	margin-top: 0px;
-	margin-left: 20px;
-	margin-bottom: 5px;
-	font-size: 30px;
+.place_items > article {
+  width: 390px;
+  padding: 20px;
+  margin: 20px;
+  border: #FF5A5F solid 1px;
+  border-radius: 4px;
 }
 
-article h2 {
-	font-size: 30px;
-	padding: 0px;
-	margin: auto;
+.place_items h2 {
+  font-size: 30px;
+  margin-top: 0;
+  padding: 0;
+  text-align: center;
 }
