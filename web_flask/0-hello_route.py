@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 import os
 from flask import Flask
-
-os.environ["FLASK_APP"] = "0-hello_route.py"
-
 """ Start a web app that listens to
 any ip and port 5000. Prints Hello HBNB! at /
 """
