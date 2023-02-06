@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from flask import Flask
-""" Start a web app that listens to
+"""
+Start a web app that listens to
 any ip and port 5000. Prints Hello HBNB! at /
 """
 
