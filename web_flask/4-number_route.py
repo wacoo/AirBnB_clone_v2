@@ -38,12 +38,12 @@ def pythoniscool(text='is cool'):
     return 'Python ' + text.replace('_', ' ')
 
 
-@app.route('/number/<n>', strict_slashes=False)
-def number(n="is cool"):
-    """ Check if n is a number and display
+@app.route('/number/<int:n>', strict_slashes=False)
+def number(n='is cool'):
+    """
+    Check if n is a number and display
     'n is a number' i it is"""
-    if n.isdigit():
-        return "{} is a number".format(n)
+    return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
