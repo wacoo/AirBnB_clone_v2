@@ -21,22 +21,22 @@ def hello():
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Display HBNB"""
-    return "HBNB"
+    return 'HBNB'
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def show_value(text):
     """Display variable value"""
     txt = text.replace('_', ' ')
-    return "C " + txt
+    return 'C ' + txt
 
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def show_vlaue_python(text="is cool"):
+def show_vlaue_python(text='is cool'):
     """Display variable value"""
     txt = text.replace('_', ' ')
-    return "Python " + txt
+    return 'Python ' + txt
 
 
 if __name__ == "__main__":
