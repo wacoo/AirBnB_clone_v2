@@ -31,8 +31,8 @@ def show_value(text):
     return "C " + txt
 
 
-@app.route('/python/<text>', strict_slashes=False)
 @app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
 def show_vlaue_python(text="is cool"):
     """Display variable value"""
     txt = text.replace('_', ' ')
