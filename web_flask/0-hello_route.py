@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-starts a Flask web application
+start a web app that listens to
+any ip and port 5000. Prints Hello HBNB! at /
 """
 
 from flask import Flask
@@ -8,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def hello():
     """returns Hello HBNB!"""
     return 'Hello HBNB!'
 

@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Start a web app that listens to
-any ip and port 5000. Prints Hello HBNB! at / and
+start a web app that listens to
+any ip and port 5000. Prints Hello HBNB at / and
 HBNB at /hbnb
 """
 
 
 from flask import Flask
-app = Flask("__name__")
+app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def index():
     """Display Hello HBNB!"""
