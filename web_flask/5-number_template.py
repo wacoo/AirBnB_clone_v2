@@ -50,8 +50,7 @@ def number(n='is cool'):
 def num_temp(n):
     """display n inside an h1 tag
     if it is a number"""
-    return "<!DOCTYPE html><html><head><title>HBNB</title></head><body>\
-            <h1>Number: {}</h1></body></html>".format(n)
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
