@@ -6,7 +6,7 @@ Hello HBNB! at /,
 HBNB at /hbnb
 value of text at /c/<text>
 """
-from flask import Flask
+from flask import Flask, escape, render_template
 
 
 app = Flask(__name__)
